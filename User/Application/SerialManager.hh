@@ -3,6 +3,7 @@
 #include "dma.h"
 #include "usart.h"
 #include "cmsis_os.h"
+#include "memory.h"
 
 #define CACHE_SIZE 50
 
@@ -20,55 +21,21 @@ private:
     uint32_t cache_size_ = 0;
 
 public:
-    SerialManager(UART_HandleTypeDef *huart)
-        : huart_(huart)
-    {
-    }
+    SerialManager(UART_HandleTypeDef *huart);
 
     HAL_StatusTypeDef Send(uint8_t type, uint8_t *data, uint16_t size, uint32_t time_out = 50);
     HAL_StatusTypeDef Recevice(uint8_t type, uint32_t time_out = 50);
 
     UART_HandleTypeDef *GetHandleType();
+    uint8_t GetStatus();
+    uint8_t *GetData();
+    uint32_t GetDataSize();
 
-    uint8_t GetStatus()
-    {
-        return status_;
-    }
+    void SetWait();
+    void SetReady();
+    void SetSize(uint32_t size);
 
-    uint8_t *GetData()
-    {
-        return cache_;
-    }
+    void EmptyCache();
 
-    uint32_t GetDataSize()
-    {
-        return cache_size_;
-    }
-
-    void SetWait()
-    {
-        status_ = WAIT;
-    }
-
-    void SetReady()
-    {
-        status_ = READY;
-    }
-
-    void SetSize(uint32_t size)
-    {
-        cache_size_ = size;
-    }
-
-    void EmptyCache()
-    {
-        for (uint32_t i = cache_size_; i < 50; i++) {
-            cache_[i] = '\0';
-        }
-    }
-
-    void HelloWorld(uint8_t type)
-    {
-        Send(type, (uint8_t *)&"Hello World!\n", sizeof("Hello World!"));
-    }
+    void HelloWorld(uint8_t type);
 };

@@ -59,6 +59,16 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 #define Led_Pin GPIO_PIN_3
 #define Led_GPIO_Port GPIOE
+#define LCD_LED_Pin GPIO_PIN_10
+#define LCD_LED_GPIO_Port GPIOE
+#define LCD_CS_Pin GPIO_PIN_11
+#define LCD_CS_GPIO_Port GPIOE
+#define LCD_SCL_Pin GPIO_PIN_12
+#define LCD_SCL_GPIO_Port GPIOE
+#define LCD_WR_RS_Pin GPIO_PIN_13
+#define LCD_WR_RS_GPIO_Port GPIOE
+#define LCD_SDA_Pin GPIO_PIN_14
+#define LCD_SDA_GPIO_Port GPIOE
 
 /* USER CODE BEGIN Private defines */
 

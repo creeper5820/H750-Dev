@@ -4,18 +4,15 @@
     "afterBuildTasks": [],
     "global": {
         "$float-abi-type": "softfp",
-        "output-debug-info": "enable",
-        "misc-control": []
+        "output-debug-info": "enable"
     },
     "c/cpp-compiler": {
-        "language-c": "c11",
-        "language-cpp": "c++11",
+        "language-c": "c17",
+        "language-cpp": "c++17",
         "optimization": "level-debug",
         "warnings": "all-warnings",
         "one-elf-section-per-function": true,
-        "one-elf-section-per-data": true,
-        "C_FLAGS": "",
-        "CXX_FLAGS": ""
+        "one-elf-section-per-data": true
     },
     "asm-compiler": {
         "ASM_FLAGS": "-DDEBUG"
@@ -24,6 +21,6 @@
         "output-format": "elf",
         "remove-unused-input-sections": true,
         "LD_FLAGS": "-TSTM32H750VBTX_FLASH.ld",
-        "LIB_FLAGS": ""
+        "LIB_FLAGS": "-lstdc++"
     }
 }

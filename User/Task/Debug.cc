@@ -3,7 +3,6 @@
 #include "gpio.h"
 
 #include "SerialManager.hh"
-#include "ValueManager.hh"
 
 extern "C" {
 void DebugLoop();

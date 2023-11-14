@@ -84,9 +84,13 @@
           "Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F",
           "User/Application",
           "User/Global",
-          "User/Basic"
+          "User/Basic",
+          "User/BSP",
+          "User/BSP/U8g2"
         ],
-        "libList": [],
+        "libList": [
+          "User/BSP"
+        ],
         "sourceDirList": [],
         "defineList": [
           "DEBUG",

@@ -75,6 +75,34 @@ const osThreadAttr_t BoardDisplay_attributes = {
   .stack_size = 128 * 4,
   .priority = (osPriority_t) osPriorityNormal,
 };
+/* Definitions for EncoderB */
+osThreadId_t EncoderBHandle;
+const osThreadAttr_t EncoderB_attributes = {
+  .name = "EncoderB",
+  .stack_size = 128 * 4,
+  .priority = (osPriority_t) osPriorityNormal,
+};
+/* Definitions for EncoderA */
+osThreadId_t EncoderAHandle;
+const osThreadAttr_t EncoderA_attributes = {
+  .name = "EncoderA",
+  .stack_size = 128 * 4,
+  .priority = (osPriority_t) osPriorityNormal,
+};
+/* Definitions for EncoderC */
+osThreadId_t EncoderCHandle;
+const osThreadAttr_t EncoderC_attributes = {
+  .name = "EncoderC",
+  .stack_size = 128 * 4,
+  .priority = (osPriority_t) osPriorityNormal,
+};
+/* Definitions for EncoderD */
+osThreadId_t EncoderDHandle;
+const osThreadAttr_t EncoderD_attributes = {
+  .name = "EncoderD",
+  .stack_size = 128 * 4,
+  .priority = (osPriority_t) osPriorityNormal,
+};
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -85,6 +113,10 @@ void StartDefaultTask(void *argument);
 extern void BoardLedLoop(void *argument);
 extern void DebugLoop(void *argument);
 extern void BoardDisplayLoop(void *argument);
+extern void EncoderBLoop(void *argument);
+extern void EncoderALoop(void *argument);
+extern void EncoderCLoop(void *argument);
+extern void EncoderDLoop(void *argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -126,6 +158,18 @@ void MX_FREERTOS_Init(void) {
 
   /* creation of BoardDisplay */
   BoardDisplayHandle = osThreadNew(BoardDisplayLoop, NULL, &BoardDisplay_attributes);
+
+  /* creation of EncoderB */
+  EncoderBHandle = osThreadNew(EncoderBLoop, NULL, &EncoderB_attributes);
+
+  /* creation of EncoderA */
+  EncoderAHandle = osThreadNew(EncoderALoop, NULL, &EncoderA_attributes);
+
+  /* creation of EncoderC */
+  EncoderCHandle = osThreadNew(EncoderCLoop, NULL, &EncoderC_attributes);
+
+  /* creation of EncoderD */
+  EncoderDHandle = osThreadNew(EncoderDLoop, NULL, &EncoderD_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
     /* add threads, ... */

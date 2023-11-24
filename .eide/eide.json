@@ -34,12 +34,17 @@
         },
         "options": "null"
       },
-      "uploader": "OpenOCD",
+      "uploader": "JLink",
       "uploadConfig": {
         "bin": "",
-        "target": "stm32h7x",
-        "interface": "stlink",
-        "baseAddr": "0x08000000"
+        "baseAddr": "",
+        "cpuInfo": {
+          "vendor": "ST",
+          "cpuName": "STM32H750VB"
+        },
+        "proType": 1,
+        "speed": 8000,
+        "otherCmds": ""
       },
       "uploadConfigMap": {
         "JLink": {
@@ -56,7 +61,7 @@
         "OpenOCD": {
           "bin": "",
           "target": "stm32h7x",
-          "interface": "stlink",
+          "interface": "jlink",
           "baseAddr": "0x08000000"
         },
         "STLink": {
@@ -83,13 +88,11 @@
           "Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2",
           "Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F",
           "User/Application",
-          "User/Global",
-          "User/Basic",
           "User/BSP",
-          "User/BSP/U8g2"
+          "User/Global"
         ],
         "libList": [
-          "User/BSP"
+          "User"
         ],
         "sourceDirList": [],
         "defineList": [
@@ -113,12 +116,17 @@
         },
         "options": "null"
       },
-      "uploader": "OpenOCD",
+      "uploader": "JLink",
       "uploadConfig": {
         "bin": "",
-        "target": "stm32h7x",
-        "interface": "cmsis-dap",
-        "baseAddr": "0x08000000"
+        "baseAddr": "",
+        "cpuInfo": {
+          "vendor": "ST",
+          "cpuName": "STM32H750VB"
+        },
+        "proType": 1,
+        "speed": 8000,
+        "otherCmds": ""
       },
       "uploadConfigMap": {
         "JLink": {
@@ -130,6 +138,23 @@
           },
           "proType": 1,
           "speed": 8000,
+          "otherCmds": ""
+        },
+        "OpenOCD": {
+          "bin": "",
+          "target": "stm32h7x",
+          "interface": "jlink",
+          "baseAddr": "0x08000000"
+        },
+        "STLink": {
+          "bin": "",
+          "proType": "SWD",
+          "resetMode": "default",
+          "runAfterProgram": true,
+          "speed": 4000,
+          "address": "0x08000000",
+          "elFile": "None",
+          "optionBytes": ".eide/debug.st.option.bytes.ini",
           "otherCmds": ""
         }
       },

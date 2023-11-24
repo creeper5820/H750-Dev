@@ -12,23 +12,22 @@ typedef enum {
     READY,
 } Status;
 
-class SerialManager
-{
+class SerialManager {
 private:
-    UART_HandleTypeDef *huart_;
+    UART_HandleTypeDef* huart_;
     uint8_t status_ = READY;
     uint8_t cache_[CACHE_SIZE];
     uint32_t cache_size_ = 0;
 
 public:
-    SerialManager(UART_HandleTypeDef *huart);
+    SerialManager(UART_HandleTypeDef* huart);
 
-    HAL_StatusTypeDef Send(uint8_t type, uint8_t *data, uint16_t size, uint32_t time_out = 50);
+    HAL_StatusTypeDef Send(uint8_t type, uint8_t* data, uint16_t size, uint32_t time_out = 50);
     HAL_StatusTypeDef Recevice(uint8_t type, uint32_t time_out = 50);
 
-    UART_HandleTypeDef *GetHandleType();
+    UART_HandleTypeDef* GetHandleType();
     uint8_t GetStatus();
-    uint8_t *GetData();
+    uint8_t* GetData();
     uint32_t GetDataSize();
 
     void SetWait();
